@@ -9,12 +9,13 @@ printers=pd.read_csv('printerListwithCost.csv')
 
 #removes any null values in the "Total Pages" column
 printers=printers.dropna(axis=0,subset=['Total Pages'])
+printers.to_csv('CleanedData/removedNullsPrinter.csv')
 
 #get the descriptive stats and print them out to a csv file
 printers.describe().to_csv('stats.csv')
 
 #Here is my locaiton CSV, not sure if I still need this
-location=pd.read_csv('IP List CVB.csv')
+location=pd.read_csv('IPLists/IP List CVB.csv')
 
 #gets you: a unique attribute, all the columns in the dataframe, and a unique row
 #print(printers['Location IP'][0], printers.columns, printers.iloc[0])
